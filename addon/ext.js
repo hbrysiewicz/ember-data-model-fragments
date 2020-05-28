@@ -244,8 +244,8 @@ decorateMethod(InternalModelPrototype, 'createSnapshot', function createFragment
 
     // If the attribute has a `_createSnapshot` method, invoke it before the
     // snapshot gets passed to the serializer
-    if (attr && typeof attr._createSnapshot === 'function') {
-      attrs[key] = attr._createSnapshot();
+    if (attr && attr.get && typeof attr.get('_createSnapshot') === 'function') {
+      attrs[key] = attr.get('_createSnapshot')();
     }
   });
 

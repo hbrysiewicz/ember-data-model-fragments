@@ -99,7 +99,7 @@ const FragmentArray = StatefulArray.extend({
   _createSnapshot() {
     // Snapshot each fragment
     return this.map(fragment => {
-      return fragment._createSnapshot();
+      return fragment.get('_createSnapshot')();
     });
   },
 
